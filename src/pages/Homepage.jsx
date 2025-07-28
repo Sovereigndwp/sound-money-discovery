@@ -35,7 +35,7 @@ const Homepage = () => {
 
   return (
     <main className="overflow-x-hidden">
-      <HeroSection onScrollToQuestions={scrollToQuestions} />
+      <HeroSection onScrollClick={scrollToQuestions} />
       <QuestionsSection />
       <FeaturesSection />
       <CTASection onStartCourse={startCourse} />

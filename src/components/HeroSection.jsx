@@ -1,9 +1,9 @@
 import React from 'react';
 
-const HeroSection = ({ onScrollToQuestions }) => {
+const HeroSection = ({ onScrollClick }) => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative bg-deep-black text-warm-white">
-      {/* Background Pattern */}
+    <section className="min-h-screen flex items-center justify-center relative bg-deep-black text-warm-white overflow-hidden">
+      {/* Background Grid */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 100 100">
           <defs>
@@ -11,10 +11,11 @@ const HeroSection = ({ onScrollToQuestions }) => {
               <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#f7931a" strokeWidth="0.5" />
             </pattern>
           </defs>
-          <rect width="100" height="100" fill="url(#grid)" />
+          <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
       </div>
 
+      {/* Content */}
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="floating mb-8">
           <div className="w-24 h-24 mx-auto mb-6 bg-bitcoin-orange rounded-full flex items-center justify-center pulse-glow">
@@ -25,17 +26,19 @@ const HeroSection = ({ onScrollToQuestions }) => {
           </div>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 reveal">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 gradient-text reveal">
           Discover <span className="gradient-text">Sound Money</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto reveal">
           Journey through the most important financial discovery of our time.{" "}
-          <span className="text-bitcoin-orange font-semibold">Question everything you thought you knew about money.</span>
+          <span className="text-bitcoin-orange font-semibold">
+            Question everything you thought you knew about money.
+          </span>
         </p>
 
         <button
-          onClick={onScrollToQuestions}
+          onClick={onScrollClick}
           className="bg-bitcoin-orange hover:bg-orange-600 text-deep-black font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 reveal pulse-glow"
         >
           Begin Your Discovery
