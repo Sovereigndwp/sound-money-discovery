@@ -2,83 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global styles and animations */
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    @apply bg-warm-white text-deep-black font-sans antialiased;
-  }
-  
-  * {
-    @apply box-border;
-  }
+/* Add your global styles here */
+body {
+  font-family: 'Inter', sans-serif;
 }
 
-@layer components {
-  /* Custom button styles using Bitcoin theme colors */
-  .btn-primary {
-    @apply bg-bitcoin-orange text-deep-black px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-orange-600 hover:shadow-lg;
-  }
-  
-  .btn-secondary {
-    @apply bg-transparent border-2 border-bitcoin-orange text-bitcoin-orange px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-bitcoin-orange hover:text-deep-black;
-  }
-  
-  .card {
-    @apply bg-white rounded-xl shadow-lg p-6 border border-gray-100;
-  }
-  
-  .card-dark {
-    @apply bg-deep-black text-warm-white rounded-xl shadow-lg p-6 border border-gray-800;
-  }
+/* Essential component styles */
+.card {
+  @apply bg-white rounded-xl shadow-lg p-6 border border-gray-100;
 }
 
-@layer utilities {
-  .text-gradient {
-    @apply bg-gradient-to-r from-bitcoin-orange to-orange-600 bg-clip-text text-transparent;
+.card-dark {
+  @apply bg-deep-black text-warm-white rounded-xl shadow-lg p-6 border border-gray-800;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-bitcoin-orange to-orange-400 bg-clip-text text-transparent;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(247, 147, 26, 0.5);
   }
-  
-  .gradient-text {
-    @apply bg-gradient-to-r from-bitcoin-orange to-orange-400 bg-clip-text text-transparent;
-  }
-  
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .floating {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite alternate;
-  }
-  
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-  }
-  
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-  
-  @keyframes pulseGlow {
-    0% {
-      box-shadow: 0 0 5px rgba(247, 147, 26, 0.5);
-    }
-    100% {
-      box-shadow: 0 0 20px rgba(247, 147, 26, 0.8), 0 0 30px rgba(247, 147, 26, 0.4);
-    }
+  100% {
+    box-shadow: 0 0 20px rgba(247, 147, 26, 0.8), 0 0 30px rgba(247, 147, 26, 0.4);
   }
 }
