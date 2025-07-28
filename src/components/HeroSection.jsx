@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const HeroSection = ({ onScrollClick }) => {
+  useEffect(() => {
+    // Trigger reveal animations after component mounts
+    const timer = setTimeout(() => {
+      const revealElements = document.querySelectorAll('.reveal');
+      revealElements.forEach(element => {
+        element.classList.add('active');
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center justify-center relative bg-deep-black text-warm-white overflow-hidden">
       {/* Background Grid */}
